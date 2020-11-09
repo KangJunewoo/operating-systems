@@ -1,6 +1,6 @@
 /**
  * 스케줄러 구현 연습 (Round Robin 방식)
- * Code Ref : https://twpower.github.io/59-compile-cpp-by-using-gcc
+ * Code Ref : https://shivammitra.com/operating%20system/roundrobin-scheduling-program/#
 */
 #include <iostream>
 #include <algorithm>
