@@ -9,14 +9,14 @@
 using namespace std;
 
 struct process {
-    int pid;
+    int pid; // 프로세스 고유번호
     int arrival_time; // 도착시각
     int burst_time; // 실행된시간
     int start_time; // 시작된시각
     int completion_time; // 완료된시각
-    int turnaround_time; // 뭔지모름
+    int turnaround_time; // arrive ~ finish
     int waiting_time; // 기다린시간
-    int response_time; // 뭔지모름
+    int response_time; // 도착~ 첫 cpu할당
 };
 
 bool compare1(process p1, process p2){
@@ -72,9 +72,9 @@ int main(){
 
     while(completed != n){ // 프로세스들이 쌓인 큐를 RR방식으로 돌리며 처리
         idx = q.front();
-        q.pop();
+        q.pop(); // pop 해서 idx에 저장
 
-        if(burst_remaining[idx] == p[idx].burst_time) {
+        if(burst_remaining[idx] == p[idx].burst_time) { // remaining == burst면
             p[idx].start_time = max(current_time,p[idx].arrival_time);
             total_idle_time += p[idx].start_time - current_time;
             current_time = p[idx].start_time;
